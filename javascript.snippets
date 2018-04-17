@@ -145,4 +145,51 @@ snippet us
 'use strict'`!p snip.rv = semi(snip)`
 endsnippet
 
+# React
+
+# Classes
+snippet rcc "React Class Component"
+class ${1:component} extends React.Component {
+	constructor(${2:props}) {
+		super($2);
+	}
+	render() {
+		return(
+			<div>
+				<h1>Component $1.</h1>
+			</div>
+		);	
+	}
+}
+endsnippet
+
+# React Elements
+snippet rel "React Element" b
+<${1:name}>${2:child}</$1>
+endsnippet
+
+snippet relc "React Element with className" b
+<${1:name} className="${2:class}">${3:child}</$1>
+endsnippet
+
+snippet relo "React Element with onClick" b
+<${1:name} onClick={${2:handler}}>${3:child}</$1>
+endsnippet
+
+snippet reloc "React Element with className and handler" b
+<${1:name} className="${2:class}" onClick={${3:handler}}>${4:child}</$1>
+endsnippet
+
+# React Misc
+snippet ren "React Render to DOM" b
+	ReactDOM.render(
+		<${1:App}/>,
+		document.getElementById('${2:div}')
+	);
+endsnippet
+
+snippet rim "React default imports" b
+import React from 'react';
+import ReactDOM from 'react-dom';
+endsnippet
 # vim:ft=snippets:
