@@ -1,5 +1,26 @@
 priority -50
 
+snippet intakeobj "object" b
+{
+	"name": "${1:name}",
+	"section": "Your Case",
+	"headline": "Now, let's learn a bit more about your case.",
+	"text": "${2:question}",
+	"questions": [
+		{
+			"name": "${1}",
+			"humanReadableName": "${3:readable}",
+			"type": "buttons",
+			"styleVariant": "${4:styles}",
+			"options": [
+				"${5:option}",
+			]
+		}
+	],
+	"next": "${6:next}"
+},
+endsnippet
+
 snippet s "String" b
 "${1:key}": "${0:value}",
 endsnippet
@@ -49,3 +70,5 @@ endglobal
 snippet b "Bool" b
 "${1:key}": $2`!p snip.rv=compB(t[2], ['true', 'false'])`,
 endsnippet
+
+

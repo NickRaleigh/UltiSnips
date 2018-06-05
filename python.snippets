@@ -27,6 +27,36 @@ for ${1:item} in ${2:iterable}:
 	${3:${VISUAL:pass}}
 endsnippet
 
+snippet rcl "Landing Function" b
+def ${1:function_name}(request):
+	if "intake" in request.GET:
+			return personal_injury_lawyer_old_intake(request, set_additional_context)
+	context = {
+			'additional_body_classes': '${2:class-name}',
+			'bottom_cta_light_text': 'Find the right ${3:spacename} attorney for you.',
+			'bottom_cta_light_link': 'personal-injury?intake',
+			'get_started_strip_button_destination': '/personal-injury?intake',
+			'landing_page': global_landing_page_context_data(request, 'personal injury'),
+			'show_footer_badges': False
+			}
+	context['landing_page'].update({
+			'title_lawyer_type': '${4:spacenamecaps}',
+			'lawsuit_type': '${3}',
+			'checkmark_1_text': 'Pay Absolutely $0',
+			'checkmark_2_text': 'Takes Just 5 Minutes',
+			'form_eta': form_eta_data(5),
+			'hero_title_text': 'Find The Right ${4} For You and Your Case',
+			'hero_smaller_text_style': True,
+			'hero_content_text': 'We’ll find the right ${3} attorney with the right expertise for you, your needs, and your case.',
+			'hero_cta': request.get_full_path() + '?intake',
+			'right_attorney_bullet_1': 'Our algorithm analyzes your specific situation to find highly qualified ${3} attorneys just for you.',
+			'masters_of_their_craft_title': 'Not Just ${4} Attorneys, Masters of Their Craft',
+			'experts_in_field_text': 'Our network of ${3} attorneys have seen it all before, so they know exactly what to do for your case.',
+			'track_record_text': 'The ${3} attorneys we work with are masters of their craft, and show it with proven results.'
+	})
+	return render(request, 'landing-page-lawyer.html', context)
+endsnippet
+
 ##########
 # COMMON #
 ##########
